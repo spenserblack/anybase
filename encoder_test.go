@@ -126,3 +126,25 @@ func TestMakeDecoder(t *testing.T) {
 		}
 	}
 }
+
+func TestTooFewEncoderBytes(t *testing.T) {
+	defer func() {
+		if r := recover(); r == nil {
+			t.Fatalf(`Expected panic`)
+		}
+	}()
+
+	encoder := Encoder("a")
+	encoder.Encode([]byte{}, []byte{})
+}
+
+func TestTooManyEncoderBytes(t *testing.T) {
+	defer func() {
+		if r := recover(); r == nil {
+			t.Fatalf(`Expected panic`)
+		}
+	}()
+
+	encoder := make(Encoder, 0xF0000)
+	encoder.Encode([]byte{}, []byte{})
+}
