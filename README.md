@@ -9,3 +9,5 @@ can be represented as a single byte.
 This does not truly allow *any* base-n, for the sake of API simplicity and familiarity based on the `encoding/hex` standard
 library. Base-1 would be absurd and implemented as tallies (`1` = `1`, `2` = `11`, etc.), and Base-257+ would not be able
 to be stored in a `byte`.
+
+View the examples for more details.
