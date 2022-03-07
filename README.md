@@ -1,5 +1,7 @@
 # anybase
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/spenserblack/anybase.svg)](https://pkg.go.dev/github.com/spenserblack/anybase)
+[![Go Report Card](https://goreportcard.com/badge/github.com/spenserblack/anybase)](https://goreportcard.com/report/github.com/spenserblack/anybase)
 [![CI](https://github.com/spenserblack/anybase/actions/workflows/ci.yml/badge.svg)](https://github.com/spenserblack/anybase/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/spenserblack/anybase/branch/main/graph/badge.svg?token=05dxpMxxTg)](https://codecov.io/gh/spenserblack/anybase)
 
