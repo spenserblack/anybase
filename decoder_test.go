@@ -139,3 +139,18 @@ func TestMakeEncoder(t *testing.T) {
 		}
 	}
 }
+
+// TestDecoderBadDst tests that the decoder returns an error when the dst
+// contains invalid bytes.
+func TestDecoderBadDst(t *testing.T) {
+	decoder := make(Decoder, 16)
+	chars := "0123456789abcdef"
+	for i := 0; i < len(chars); i++ {
+		decoder[chars[i]] = byte(i)
+	}
+	want := ErrBadEncodedByte('g')
+
+	if _, err := decoder.Decode([]byte{'f', 'g'}, make([]byte, 1)); err != want {
+		t.Fatalf(`err = %v, want %v`, err, want)
+	}
+}
