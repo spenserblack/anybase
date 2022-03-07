@@ -107,3 +107,22 @@ func TestEncodedLen(t *testing.T) {
 		}
 	}
 }
+
+// TestMakeDecoder tests that a decoder can be made from an encoder.
+func TestMakeDecoder(t *testing.T) {
+	s := "0123456789abcdef"
+	encoder := Encoder(s)
+	decoder := encoder.Decoder()
+
+	if l := len(decoder); l != 16 {
+		t.Fatalf(`len(decoder) = %v, want 16`, l)
+	}
+
+	for i := 0; i < len(s); i++ {
+		b := s[i]
+		want := byte(i)
+		if actual, ok := decoder[b]; !ok || actual != want {
+			t.Errorf(`[exists: %v] decoder[%v] = %v, want %v`, ok, b, actual, want)
+		}
+	}
+}
